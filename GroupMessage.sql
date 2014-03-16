@@ -1,7 +1,0 @@
-CREATE TABLE GroupMessage (
-	MessageID INT NOT NULL AUTO_INCREMENT,
-	Content VARCHAR(256),
-	PRIMARY KEY (MessageID),
-	FOREIGN KEY (Gid)
-		REFERENCES Group(Gid)
-);
