@@ -1,0 +1,9 @@
+CREATE TABLE Event (
+	EventID INT NOT NULL AUTO_INCREMENT,
+	EventDate DATE,
+	Place VARCHAR(50),
+	Purpose VARCHAR(256),
+	PRIMARY KEY (EventID),
+	FOREIGN KEY (Gid)
+		REFERENCES Group(Gid)
+);
