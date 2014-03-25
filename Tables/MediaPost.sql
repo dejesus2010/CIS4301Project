@@ -1,14 +1,12 @@
 CREATE TABLE MediaPost (
+	Pid SERIAL NOT NULL REFERENCES Post(Pid),
+	Userid SERIAL NOT NULL,
+	Username VARCHAR(20) NOT NULL,
+	Email VARCHAR(35) NOT NULL,
 	MediaURL VARCHAR(256),
-	Pid INT NOT NULL AUTO_INCREMENT,
-	Content VARCHAR(256), -- Not sure about data type
-	ShareQuota INT, -- Share Count for Deadline
-	Deadline DATE, 
-	isPermanent BOOLEAN, -- TRUE if quota is met before Deadline
-	Goal INT, -- Goal of number of shares
-	ShareCount INT,
-	FOREIGN KEY (Pid,Content,ShareQuota,Deadline,isPermanent,Goal,ShareCount)
-		REFERENCES Post(Pid,Content,ShareQuota,Deadline,isPermanent,Goal,ShareCount)
+	PRIMARY KEY (Pid),
+	FOREIGN KEY (Userid,Username,Email)
+		REFERENCES Sharer(Userid,Username,Email)
 		ON UPDATE CASCADE
 		-- CREATE TRIGGER for DELETEs in Post as well
 		-- CREATE TRIGGER for INSERTs

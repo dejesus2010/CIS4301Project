@@ -1,8 +1,13 @@
 CREATE TABLE Contributions (
-	Cid INT NOT NULL AUTO_INCREMENT,
+	Cid SERIAL NOT NULL,
+	Userid SERIAL NOT NULL,
+	Username VARCHAR(20) NOT NULL,
+	Email VARCHAR(35) NOT NULL,
+	Pid SERIAL,
 	Content VARCHAR(256), -- Not sure on data type
 	PRIMARY KEY (Cid),
-	FOREIGN KEY (Email)
-		REFERENCES Follower(Email)
-	
+	FOREIGN KEY (Userid,Username,Email)
+		REFERENCES Sharer(Userid,Username,Email),
+	FOREIGN KEY (Pid)
+		REFERENCES Post(Pid)
 );
