@@ -1,13 +1,7 @@
 CREATE TABLE MediaPost (
 	Pid SERIAL NOT NULL REFERENCES Post(Pid),
-	Userid SERIAL NOT NULL,
-	Username VARCHAR(20) NOT NULL,
-	Email VARCHAR(35) NOT NULL,
-	MediaURL VARCHAR(256),
-	PRIMARY KEY (Pid),
-	FOREIGN KEY (Userid,Username,Email)
-		REFERENCES Sharer(Userid,Username,Email)
-		ON UPDATE CASCADE
-		-- CREATE TRIGGER for DELETEs in Post as well
-		-- CREATE TRIGGER for INSERTs
+	MediaURL VARCHAR(256) NOT NULL, -- A JOIN would give us the 'content' from the Post table
+	FOREIGN KEY (Pid),
+	-- CREATE TRIGGER for DELETEs in Post as well
+	-- CREATE TRIGGER for INSERTs " "
 );
