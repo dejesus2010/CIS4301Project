@@ -1,0 +1,14 @@
+/// ALL USERS ///
+SELECT Username 
+FROM SparkUser;
+
+
+/// POSTS BY DATE ///
+SELECT Content, PostDate
+FROM Posts
+GROUP BY PostDate;
+
+
+///  ///
+
+
