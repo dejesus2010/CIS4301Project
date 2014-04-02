@@ -59,6 +59,7 @@ CREATE TABLE contributions (
 
 CREATE TABLE permanentPosts (
 	PermPostId SERIAL,
+	PermPostRefID integer REFERENCES Posts(PostId),
 	PermPostUserid integer REFERENCES sparkUsers(UserId),
 	PermPostContent VARCHAR(1000) NOT NULL,
 	PermPostShareCount integer,
