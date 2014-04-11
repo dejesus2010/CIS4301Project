@@ -1,0 +1,27 @@
+{
+  "name": "sprkShare",
+  "version": "0.0.1",
+  "description": "The Social Platform for spreading ideas to make them become realities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cis4301sp14/myclassproject.git"
+  },
+  "keywords": [
+    "dreams",
+    "ideas",
+    "collaboration",
+    "spark",
+    "share",
+    "sprkShare"
+  ],
+  "author": "Jorge Paez, Eric Gross, Ryan DeJesus, Aleksey Klinsetvich, Daniel Rincon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cis4301sp14/myclassproject/issues"
+  },
+  "homepage": "https://github.com/cis4301sp14/myclassproject"
+}
