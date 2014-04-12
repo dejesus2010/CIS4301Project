@@ -1,18 +1,18 @@
-exports.module = function() {
+var constructor = function() {
 
     var authControllerInstance = {};
-    var userDA = require('./dataAccessors/UserDataAccessor');
+    var userDA = require('../dataAccessors/UserDataAccessor');
     authControllerInstance.registration = function(req, res) {
 
         var data = req.body;
 
         userDA.registration(data, function(err, rowsData){
-            if(err)
-            {
-                res.send('something went wrong');
+            console.log(err);
+            if(err.code = 23505) {
+                res.send('That username is already taken');
+            } else {
+                res.send(rowsData);
             }
-
-            res.send(rowsData);
         });
     };
 
@@ -20,12 +20,16 @@ exports.module = function() {
         var data = req.body;
 
         userDA.login(data, function(err, rowsData){
-            if(err)
-            {
-                res.send('something went wrong');
-            }
+            if(err.code = 23505) {
 
-            res.send(rowsData);
+                res.send('something went wrong');
+            } else {
+                res.send(rowsData);
+            }
         });
     };
-}
+
+    return authControllerInstance;
+};
+
+module.exports = constructor();

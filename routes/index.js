@@ -1,6 +1,6 @@
-var authController = require('./authController');
-
 module.exports = function(app, passport){
+
+    var authController = require('./controllers/authController');
 
     // render home page
     app.get('/', function(req, res) {
@@ -8,6 +8,6 @@ module.exports = function(app, passport){
         console.log(authController);
     });
 
-    app.post('/api/user/register', authController.registration);
     app.post('/auth/login', authController.login);
+    app.post('/auth/register', authController.registration);
 }

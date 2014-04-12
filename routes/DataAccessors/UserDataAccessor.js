@@ -5,17 +5,21 @@ var constructor = function() {
 
     userDAInstance.registration = function(data, sendData) {
 
-        var preparedStatement = 'INSERT INTO stuff(Username, UserEmail, UserPassword) VALUES ($1, $2, $3) RETURNING key';
+        var preparedStatement = 'INSERT INTO sparkUsers(Username, UserEmail, UserPassword) VALUES ($1, $2, $3) RETURNING UserId';
         var inserts = [ data.username, data.email, data.password ];
 
         // for local dev change to process.env.DATABASE_URL
-        pg.connect(process.env.HEROKU_POSTGRESQL_COBALT_URL, function(err, client, done) {
+        pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             client.query(preparedStatement, inserts, function(err, result) {
                 done();
-                if(err)
+
+                if(err) {
                     sendData(err)
-                else
+                }
+                else {
                     sendData(err, result.rows);
+
+                }
             });
         });
     };
@@ -26,15 +30,14 @@ var constructor = function() {
         var inserts = [];
 
         // for local dev change to process.env.DATABASE_URL
-        pg.connect(process.env.HEROKU_POSTGRESQL_COBALT_URL, function(err, client, done) {
+        pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             client.query(preparedStatement, inserts, function(err, result) {
-                if(err) {
-                    return console.error('error running query', err);
-                }
+                done();
 
-                client.end();
-                console.log(result.rows);
-                res.send(result.rows);
+                if(err)
+                    sendData(err)
+                else
+                    sendData(err, result.rows);
             });
         });
     };
@@ -42,4 +45,4 @@ var constructor = function() {
     return userDAInstance;
 };
 
-exports.module = constructor();
+module.exports = constructor();

@@ -3,9 +3,9 @@ CREATE DATABASE sprkShare;
 -- Users data 
 CREATE TABLE sparkUsers (
 	UserId SERIAL,
-	Username VARCHAR(250),
+	Username VARCHAR(250) UNIQUE,
 	UserPassword VARCHAR(250),
-	UserEmail VARCHAR(250),
+	UserEmail VARCHAR(250) UNIQUE,
 	UserPicURL VARCHAR(1000) DEFAULT 'imgs/defaultAvatar.PNG',
 	UserDescription VARCHAR(500),
 	UserRegistrationDate timestamp NOT NULL DEFAULT CURRENT_DATE,
