@@ -1,12 +1,9 @@
 // includes
 var express  = require('express'),
     passport = require('passport'),
-    flash = require('connect-flash'),
-    http = require('http'),
-    db = require('./models');
+    http = require('http');
 
 var app = express();
-// require('./config/passport')(passport);
 
 app.configure(function() {
 
@@ -22,23 +19,22 @@ app.configure(function() {
     app.use(express.session({ secret: 'mahSecret' }));
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(flash());
     app.use(app.router);
     app.use(express.static(__dirname + '/public' ) );
+
+    /// catch 404 and forwarding to error handler
+    app.use(function(req, res, next) {
+        var err = new Error('Not Found');
+        err.status = 404;
+        next(err);
+    });
 
 });
 
 // setup the routes
-require('./routes/index.js')(app, passport);
+require('./routes/index.js')(app);
 
 // sync the database models
-db.sequelize.sync().complete(function(err){
-
-    if(err) {
-        throw err
-    } else {
-        http.createServer(app).listen(app.get('port'), function(){
-            console.log("Listening on port " + app.get('port'));
-        });
-    }
+http.createServer(app).listen(app.get('port'), function(){
+    console.log("Listening on port " + app.get('port'));
 });
