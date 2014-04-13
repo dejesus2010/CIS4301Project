@@ -1,6 +1,7 @@
 doctype html
 html
   head 
+    // INIT
     link(rel= 'stylesheet', href= '/stylesheets/style.css')
     meta(charset= 'UTF-8')
     meta(name ='viewport', content= 'width=device-width, initial-scale=1')
@@ -11,21 +12,29 @@ html
 
     title= title
     
-    block head
+  block head 
+  // END INIT
+
   body
+    // NAVBAR
     main.navbar.navbar-inverse.navbar-static-top(role= 'navigation')
-      .container(align= 'left')
+      .container
         .navbar-header
+          // LOGO
           button.navbar-toggle(type= 'button', data-toggle= 'collapse', data-target= '.navbar-collapse')
-            // form(name= 'input', action= '')
-            span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
           a(href= '/')
             img(src= '/images/SprkShareLogo1.png')
           block header
+          // END LOGO
 
+          // MODAL BUTTONS - Login | Sign-Up
+          a(data-toggle= 'modal', href= '#login_modal', class= 'btn btn-primary front_button separation') LogIn           
+          a(data-toggle= 'modal', href= '#sign_up_modal', class= 'btn btn-primary front_button') Sign-Up
+
+        // OTHER NAVBAR BUTTONS
         .navbar-collapse.collapse
           ul.nav.navbar-nav
             - var obj = { 'home': 'Home', 'post': 'Post' }
@@ -36,10 +45,77 @@ html
                 - else
                   li
                     a(href= '#{key}') #{val}
-      block main
+    block main
+    // END NAVBAR
 
-
-    block body
+  block body
 
     footer
       | © SprkShare 2014
+
+  // BEGIN LOGIN MODAL
+  div(class= 'modal fade' id= 'login_modal', tabindex='-1', role= 'dialog' aria-labelledby= 'myModalLabel', aria-hidden= 'true')
+    div(class= 'modal-dialog')
+      div(class= 'modal-content')
+        div(class= 'modal-header')
+          button(type= 'button', class= 'close', data-dismiss= 'modal', aria-hidden= 'true') &times
+          h4(class= 'modal-title') LogIn
+
+            div(class= 'modal-body')
+              form(class= 'form-horizontal' role= 'form')
+                div(class= 'form-group')
+                  label(for= 'email_log', class= 'col-sm-2 control-label') Email:
+                    .col-sm-10
+                  input(type= 'email', class= 'form-control', id= 'email_log', placeholder= 'email@domain')
+
+                div(class= 'form-group')
+                  label(for= 'password_log', class= 'col-sm-2 control-label') Password:
+                    .col-sm-10
+                  input(type= 'password', class= 'form-control', id= 'password_log', placeholder= '********')
+
+                div(class= 'form-group')
+                  div(class= 'col-sm-offset-2 col-sm-10')
+                    div(class= 'checkbox')
+                      label Remember Me
+                        input(type= 'checkbox', value= 'Remember Me')
+
+                div(id= 'error')
+
+              div(class= 'modal-footer')
+                button(type= 'button', class= 'btn btn-default', data-dismiss= 'modal') Close
+                // TODO: Anon function to query_answer('log') 'onclick'
+                button(type= 'button', class= 'btn btn-primary', onclick= '') LogIn
+  // END LOGIN MODAL
+
+  // BEGIN SIGN-UP MODAL
+  div(class= 'modal fade', id= 'sign_up_modal', tabindex= '-1', role= 'dialog', aria-labelledby= 'myModalLabel', aria-hidden= 'true')
+    div(class= 'modal-dialog')
+      div(class= 'modal-content')
+        div(class= 'modal-header')
+          button(type= 'button', class= 'close', data-dismiss= 'modal', aria-hidden= 'true')&times
+          h4(class= 'modal-title') Become a SprkUser!
+        div(class= 'modal-body')
+          form(class= 'form-horizontal', role= 'form', method= 'post', action= '')
+            
+            div(class= 'form-group')
+              label(for= 'email', class= 'col-sm-2 control-label') Email:
+              div(class= 'col-sm-10')
+                input(type= 'email', class= 'form-control', id= 'email', name= 'email', placeholder= 'email@domain')
+            
+            div(class= 'form-group')
+              label(for= 'password', class= 'col-sm-2 control-label') Password:
+              div(class= 'col-sm-10')
+                input(type= 'password', class= 'form-control', id= 'password', name= 'password', placeholder= '********')
+
+            div(class= 'form-group')
+              label(for= 'password_again', class= 'col-sm-2 control-label') Verify Password: 
+              div(class= 'col-sm-10')
+                input(type= 'password', class= 'form-control', id= 'password_again', name= 'password_again', placeholder= 'Enter Again')
+
+            div(id= 'match_or_not')
+
+            div(class= 'modal-footer')
+              button(type= 'button', class= 'btn btn-default', data-dismiss= 'modal') Close
+              // TODO: Anon function to query_answer('sign') 'onclick'
+              button(type= 'button', class= 'btn btn-primary', onclick= '') Sign-Up
+  // END SIGN-UP MODAL
