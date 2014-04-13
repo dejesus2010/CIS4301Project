@@ -30,6 +30,12 @@ app.configure(function() {
 
 // setup the routes
 require('./routes/index.js')(app);
+app.get('/', routes.index);
+app.get('/users', user.list);
+
+// TODO:
+// app.get('/post', routes.post);
+// app.get('/user', routes.user);
 
 // sync the database models
 http.createServer(app).listen(app.get('port'), function(){
