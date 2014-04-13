@@ -1,6 +1,7 @@
 // includes
 var express  = require('express'),
     http = require('http');
+var routes = require('./routes');
 
 var app = express();
 
@@ -30,8 +31,6 @@ app.configure(function() {
 
 // setup the routes
 require('./routes/index.js')(app);
-app.get('/', routes.index);
-app.get('/users', user.list);
 
 // TODO:
 // app.get('/post', routes.post);
