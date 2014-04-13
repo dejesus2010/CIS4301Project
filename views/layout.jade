@@ -1,7 +1,45 @@
 doctype html
 html
-  head
+  head 
+    link(rel= 'stylesheet', href= '/stylesheets/style.css')
+    meta(charset= 'UTF-8')
+    meta(name ='viewport', content= 'width=device-width, initial-scale=1')
+    script(src= 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src= '/bootstrap/js/bootstrap.min.js')
+    link(rel= 'stylesheet', href= '/bootstrap/css/bootstrap.min.css')
+    link(rel= 'stylesheet', type= 'text/css', href= '/bootstrap/css/styles.css')
+
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    
+    block head
   body
-    block content
+    main.navbar.navbar-inverse.navbar-static-top(role= 'navigation')
+      .container(align= 'left')
+        .navbar-header
+          button.navbar-toggle(type= 'button', data-toggle= 'collapse', data-target= '.navbar-collapse')
+            // form(name= 'input', action= '')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(href= '/')
+            img(src= '/images/SprkShareLogo1.png')
+          block header
+
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            - var obj = { 'home': 'Home', 'post': 'Post' }
+              - each val, key in obj
+                - if (id == key)
+                  li.active
+                    a(href= '#{key}') #{val}
+                - else
+                  li
+                    a(href= '#{key}') #{val}
+      block main
+
+
+    block body
+
+    footer
+      | © SprkShare 2014

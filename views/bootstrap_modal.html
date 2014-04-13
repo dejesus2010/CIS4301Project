@@ -1,0 +1,121 @@
+ <a data-toggle="modal" href="#login_modal" class="btn btn-primary front_button separation">Log In</a>
+          
+ <a data-toggle="modal" href="#sign_up_modal" class="btn btn-primary front_button ">Sign Up</a>
+ 
+ 
+ 
+ 
+
+ <!--the login modal -->
+  <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Log In</h4>
+        </div>
+        
+                <div class="modal-body">
+                 
+                         
+                         
+                        <form class="form-horizontal" role="form">
+                              <div class="form-group">
+                                    <label for="email_log" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email_log" placeholder="Email">
+                                    </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                    <label for="password_log" class="col-sm-2 control-label">Password</label>
+                                    <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="password_log" placeholder="Password">
+                                    </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                          <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Remember me
+                                                </label>
+                                          </div>
+                                    </div>
+                              </div>
+                        
+                     <div id="error">
+                    </div>
+                </div>
+                
+                
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="query_answer('log')">Log In</button>
+        </div>
+    	</form>  
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--the sign up modal -->
+  
+  
+  
+  
+  <div class="modal fade" id="sign_up_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+   
+                <form class="form-horizontal" role="form" method="post" action="">
+                      <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                      </div>
+                      
+                      <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                 <input type="password" class="form-control" id="password" name="password" 
+                                 placeholder="Password">
+                            </div>
+                      </div>
+                      <div class="form-group">
+                            <label for="password_again" class="col-sm-2 control-label">Password</label>
+                       		<div class="col-sm-10">
+                                   <input type="password" class="form-control" id="password_again" name="password_again"
+                                    placeholder="Enter Again">
+                            </div>
+                      </div>
+                  <div id="correct_or_not">
+                  </div>
+         	 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="query_answer('sign')">Sign Up</button>
+                </div>
+           </form>
+
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
