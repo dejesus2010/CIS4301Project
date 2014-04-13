@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<!--INIT-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+	<!--END INIT-->
+	
+	<!--TITLE-->
+    <title>CHAMP</title>
+	
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+	<body>
+		<!--NAVBAR-->
+		<div class = "navbar navbar-inverse navbar-static-top">
+			<div class = "container">
+				<a href = "#" class = "navbar-brand">GO GATORS!</a>
+			</div>
+		</div>
+		
+		<!--QUERY-->
+		<div class="jumbotron text-center">
+			<h3>NBA Champs</h3>
+			<p>Pick a date for the 2013-14 NBA Season to find the Champ for that date.</p>
+			<!--DATE PICKER-->
+			<p>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#datepicker').datepicker({
+						format: 'yyyy-mm-dd'
+					});
+				});
+			</script>
+			
+			<form action="query.php" method="post">
+				<input type="text" name="datepicker" id="datepicker" data-date-format="yyyy-mm-dd" placeholder="Pick a Date">
+			
+			</p>
+			<!--END DATE PICKER-->
+			<!--<p><a href="#result" class="btn btn-primary btn-lg" role="button">SUBMIT</a></p>//-->
+			
+			<script type="text/javascript">
+				$(document).ready() {
+					$('#submit').change(function() {
+						$.ajax ({
+							type: "GET",
+							url: "query.php",
+							data: "query=" + document.form.textarea.value,
+							success: function(msg) {
+								document.getElementById('result').innerHTML = msg;
+							})
+						});
+					};
+				}
+				
+			</script>	
+			<input type="submit" value="Query!">	
+			</form>	
+			
+		</div>
+		<!--
+		<div class="jumbotron text-center">
+			<--!CONVERT TIME AND DATE TO PRINT
+			<script>			
+				var date = $('#datepicker').val();
+				$(document.body).append(date);
+			</script>
+		</div>
+		//-->
+		
+	</body>
+</html>
