@@ -11,3 +11,7 @@ module.exports = function(app, passport){
     app.post('/auth/login', authController.login);
     app.post('/auth/register', authController.registration);
 }
+
+exports.index = function(req, res) {
+  res.render('index', { title: 'SprkShare - Spark an Idea' });
+};
