@@ -18,33 +18,44 @@ html
   body
     // NAVBAR
     main.navbar.navbar-inverse.navbar-static-top(role= 'navigation')
-      .container
-        .navbar-header
-          // LOGO
-          button.navbar-toggle(type= 'button', data-toggle= 'collapse', data-target= '.navbar-collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a(href= '/')
-            img(src= '/images/SprkShareLogo1.png')
-          block header
-          // END LOGO
+      .navbar-inner
+        .container
+          .navbar-header
+            // LOGO
+            button.navbar-toggle(type= 'button', data-toggle= 'collapse', data-target= '.navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a(href= '/')
+              img(src= '/images/SprkShareLogo1.png')
+            block header
+            // END LOGO
 
-          // MODAL BUTTONS - Login | Sign-Up
-          a(data-toggle= 'modal', href= '#login_modal', class= 'btn btn-primary front_button separation') LogIn           
-          a(data-toggle= 'modal', href= '#sign_up_modal', class= 'btn btn-primary front_button') Sign-Up
+            // MODAL BUTTONS - Login | Sign-Up
+            // Padding between logo and buttons
+            &nbsp;&nbsp;&nbsp;
+            a(data-toggle= 'modal', href= '#login_modal', class= 'btn btn-primary front_button separation') LogIn
+            // Padding between buttons
+            &nbsp;&nbsp;&nbsp;
+            a(data-toggle= 'modal', href= '#sign_up_modal', class= 'btn btn-primary front_button') Sign-Up
 
-        // OTHER NAVBAR BUTTONS
-        .navbar-collapse.collapse
-          ul.nav.navbar-nav
-            - var obj = { 'home': 'Home', 'post': 'Post' }
-              - each val, key in obj
-                - if (id == key)
-                  li.active
-                    a(href= '#{key}') #{val}
-                - else
-                  li
-                    a(href= '#{key}') #{val}
+          // OTHER NAVBAR BUTTONS
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              - var obj = { 'home': 'Home', 'post': 'Post' }
+                - each val, key in obj
+                  - if (id == key)
+                    li.active
+                      a(href= '#{key}') #{val}
+                  - else
+                    li
+                      a(href= '#{key}') #{val}
+            // USER AVATAR PHOTO
+            ul(class= 'nav pull-right')
+              li(class= 'active')
+                // TODO: Create user-page for user to navigate to.
+                a(href= 'user')
+                  img(src= '/images/default_avatar.png', height= '35', width= '40')
     block main
     // END NAVBAR
 
