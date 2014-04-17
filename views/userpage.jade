@@ -1,0 +1,111 @@
+extends layout
+
+head
+  title= tile  
+
+block mainContent
+  div(class= 'container special')
+    header#overview.jumbotron
+      h2 User Overview
+      div.tabbable.tabs-below
+        div.tab-content
+          div.tab-pane.active
+
+      div.tabbable
+        ul.nav.nav-tabs
+          li.active
+            a(href= '#posts', data-toggle= 'tab', onclick= 'showOnlyPosts') Posts
+          li
+            a(href= '#friends', data-toggle= 'tab', onclick= 'showOnlyFriends') Friends
+          li
+            a(href= '#groups', data-toggle= 'tab', onclick= 'showOnlyGroups') Groups
+          li 
+            a(href= '#followers', data-toggle= 'tab', onclick= 'showOnlyFollowers') Followers
+
+        div.tab-content
+          div(class= 'tab-pane active', id= 'posts')
+            div(id ='left')
+              p(style= 'white-space: pre')
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+                | Got some shit for posts.
+
+            div(id= 'right')
+              p(style= 'white-space: pre')
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+                | Got some shit for right posts.
+              
+          div(class= 'tab-pane', id= 'friends')
+            div(id ='left')
+              p
+                | Got some shit for friends.
+            div(id= 'right')
+              p 
+                | Got some shit for right friends.
+        
+          div(class= 'tab-pane', id= 'groups')
+            div(id ='left')
+              p
+                | Got some shit for groups.
+            div(id= 'right')
+              p 
+                | Got some shit for right groups.
+        
+          div(class= 'tab-pane', id= 'followers')
+            div(id ='left')
+              p
+                | Got some shit for followers.
+            div(id= 'right')
+              p 
+                | Got some shit for right followers.
+        
+    block table
+
+script(src= '/bootstrap/js/showHide.js')
+block scripts

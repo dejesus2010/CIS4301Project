@@ -9,6 +9,7 @@ html
     script(src= '/bootstrap/js/bootstrap.min.js')
     link(rel= 'stylesheet', href= '/bootstrap/css/bootstrap.min.css')
     link(rel= 'stylesheet', type= 'text/css', href= '/bootstrap/css/styles.css')
+    block scripts
 
     title= title
     
@@ -42,7 +43,7 @@ html
           // OTHER NAVBAR BUTTONS
           .navbar-collapse.collapse
             ul.nav.navbar-nav
-              - var obj = { 'home': 'Home', 'post': 'Post' }
+              - var obj = { '/': 'Home', 'post': 'Post' }
                 - each val, key in obj
                   - if (id == key)
                     li.active
@@ -54,10 +55,10 @@ html
             ul(class= 'nav pull-right')
               li(class= 'active')
                 // TODO: Create user-page for user to navigate to.
-                a(href= 'user')
+                a(href= 'userpage')
                   img(src= '/images/default_avatar.png', height= '35', width= '40')
-    block main
-    // END NAVBAR
+    block mainContent
+      // END NAVBAR
 
   block body
 

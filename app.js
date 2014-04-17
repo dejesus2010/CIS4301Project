@@ -14,6 +14,7 @@ app.configure(function() {
     app.use(express.favicon());
     app.use(express.logger('dev'));
     app.use(express.cookieParser());
+    app.use(express.urlencoded());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.session({ secret: 'mahSecret' }));
@@ -33,8 +34,8 @@ app.configure(function() {
 require('./routes/index.js')(app);
 
 // TODO:
-// app.get('/post', routes.post);
-// app.get('/user', routes.user);
+routes(app);
+
 
 // sync the database models
 http.createServer(app).listen(app.get('port'), function(){
