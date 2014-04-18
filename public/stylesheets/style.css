@@ -6,3 +6,35 @@ body {
 a {
   color: #00B7FF;
 }
+
+#left { 
+  overflow-y: scroll; 
+  overflow: auto;
+  float: left; 
+  width: 275px; 
+  max-height: 400px;
+  height: 400px;
+  border-style: solid;
+  border-color: rgba(149, 165, 166, 1.0);
+  border-width: 1px;
+  background-color: rgba(149, 165, 166, 0.5);
+}
+
+#right {
+ overflow-y: scroll;
+ overflow: auto;
+ float: right;
+ width: 65%;
+ max-height: 400px;
+ height: 400px;
+ border-style: solid;
+ border-color: rgba(149, 165, 166, 1.0);
+ border-width: 1px;
+ background-color: rgba(149, 165, 166,0.5);
+}
+
+nav ul{height:200px; width:30%;}
+nav ul{overflow:hidden; overflow-y:scroll;}
+
+html,body {height:100%;}
+.special,.special .jumbotron {height:100%;}
