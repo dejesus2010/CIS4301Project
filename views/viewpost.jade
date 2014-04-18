@@ -1,7 +1,7 @@
 extends layout
 
 block style
-    link( rel='stylesheet', href='/bootstrap/css/viewpoststyle.css')
+    link( rel='stylesheet', href='/stylesheets/viewpoststyle.css')
 
 block scripts
     script(type='text/javascript').
@@ -14,7 +14,7 @@ block scripts
 
 block mainContent
     div#postHeader
-       div.container
+       div.container#postHeaderContainer
             div.row
                 div.col-md-7.text-center
                     div#postTitle
@@ -34,24 +34,26 @@ block mainContent
                                     | Can even add an about me section...?
        block PostHeader
 
-    div#postContent
+    div#postContentBlock
        div.container
             div.row
                 div.col-md-1#leftCol
                     ul.nav.nav-stacked#sidebar
-                        li
-                            div.input-group
-                                span.input-group-addon.add.btn.btn-primary(data-toggle='modal', href='#createcontribution')
-                                span.input-group-addon Contribute
+                         li
+                            div.btn-group
+                                div.add.btn.btn-primary(data-toggle='modal', href='#createcontribution')
+                                span
+                                  | Contribute
+
 
                 div.col-md-11#rightCol
 
                     div.postContent
                         | Post Content.
                     div.postContribution
-                        a(href='user')
-                            img( src= '/images/default_avatar.png', height= '30', width= '30' )
                         a(href='userpage')
+                            img( src= '/images/default_avatar.png', height= '30', width= '30' )
+                        a(href='userpagepage')
                             | User 1
                         div.postContributionContent
                             | 1st contribution
@@ -66,7 +68,7 @@ block mainContent
                     div.postContribution
                         a(href='userpage')
                             img( src= '/images/default_avatar.png', height= '30', width= '30' )
-                        a(href='user')
+                        a(href='userpage')
                             | User 2
                         span
                             | 3rd contribution

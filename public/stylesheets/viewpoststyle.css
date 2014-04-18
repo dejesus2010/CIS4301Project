@@ -7,14 +7,19 @@
 
 
 #postHeader h1{
-    line-height: 1;
     padding-top: 20px;
     position: relative;
+
 }
 
-#postContent{
+#postHeaderContainer{
 
+
+}
+
+#postContentBlock{
     position: relative;
+
 }
 
 .affix-top, .affix{
@@ -51,16 +56,17 @@
 }
 
 .postContribution{
-    border-bottom: solid 1px;
-    border-right: solid 1px;
-    border-left: solid 1px;
+    padding: 10px;
+    background-color: #b3b3b3;
+    margin: 5px;
+}
+
+.postContribution:hover{
+    background-color: #adadad;
 }
 
 
 .postContent{
-    border-bottom: solid 1px;
-    border-right: solid 1px;
-    border-left: solid 1px;
     padding: 5px;
 }
 
