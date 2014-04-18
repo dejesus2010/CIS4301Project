@@ -9,6 +9,7 @@ html
     script(src= '/bootstrap/js/bootstrap.min.js')
     link(rel= 'stylesheet', href= '/bootstrap/css/bootstrap.min.css')
     link(rel= 'stylesheet', type= 'text/css', href= '/bootstrap/css/styles.css')
+    block scripts
 
     title= title
 
@@ -43,7 +44,7 @@ html
           // OTHER NAVBAR BUTTONS
           .navbar-collapse.collapse
             ul.nav.navbar-nav
-              - var obj = { 'home': 'Home', 'post': 'Post' }
+              - var obj = { '/': 'Home', 'post': 'Post' }
                 - each val, key in obj
                   - if (id == key)
                     li.active
@@ -59,6 +60,10 @@ html
                   img(src= '/images/default_avatar.png', height= '35', width= '40', alt="User Image")
     block mainContent
     // END NAVBAR
+                a(href= 'userpage')
+                  img(src= '/images/default_avatar.png', height= '35', width= '40')
+    block mainContent
+      // END NAVBAR
 
     block footer
         div.navbar.navbar-default.navbar-fixed-bottom

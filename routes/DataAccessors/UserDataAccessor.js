@@ -42,6 +42,25 @@ var constructor = function() {
         });
     };
 
+    userDAInstance.posts = function(req, res) {
+        // TODO: Add this.userID to query.
+        var preparedStatement = 'SELECT * FROM posts, sparkUsers WHERE postUserId = userId';
+        var inserts = [];
+
+        pg.connect(precoess.env.DATABASE_URL, function(err, client, done) {
+            client.query(preparedStatement, inserts, function(err, result) {
+                done();
+
+                if (err) {
+                    sendData(err)
+                }
+                else {
+                    sendData(err, result.rows);
+                }
+            });
+        });
+    };
+
     return userDAInstance;
 };
 
