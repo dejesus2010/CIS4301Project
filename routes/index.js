@@ -8,6 +8,10 @@ module.exports = function(app, passport){
         res.render('index', { title: 'SprkShare - Sprk an Idea' });
         console.log(authController);
     });
+
+    app.get('/viewpost', function(req,res){
+        res.render('viewpost', {title: 'View Post'});
+    });
     
     // render SprkUser page
     app.get('/userpage', function (req, res) {

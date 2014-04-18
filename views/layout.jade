@@ -19,7 +19,7 @@ html
 
   body
     // NAVBAR
-    main.navbar.navbar-inverse.navbar-static-top(role= 'banner')
+    main.navbar.navbar-inverse.navbar-static-top(role= 'navigation')
       .navbar-inner
         .container
           .navbar-header
@@ -56,14 +56,11 @@ html
             ul(class= 'nav pull-right')
               li(class= 'active')
                 // TODO: Create user-page for user to navigate to.
-                a(href= 'user')
-                  img(src= '/images/default_avatar.png', height= '35', width= '40', alt="User Image")
+                a(href= 'userpage')
+                    img(src= '/images/default_avatar.png', height= '35', width= '40')
     block mainContent
     // END NAVBAR
-                a(href= 'userpage')
-                  img(src= '/images/default_avatar.png', height= '35', width= '40')
-    block mainContent
-      // END NAVBAR
+
 
     block footer
         div.navbar.navbar-default.navbar-fixed-bottom
