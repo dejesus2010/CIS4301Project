@@ -12,8 +12,9 @@ html
     block scripts
 
     title= title
-    
-  block head 
+
+    block style
+
   // END INIT
 
   body
@@ -56,14 +57,16 @@ html
               li(class= 'active')
                 // TODO: Create user-page for user to navigate to.
                 a(href= 'userpage')
-                  img(src= '/images/default_avatar.png', height= '35', width= '40')
+                    img(src= '/images/default_avatar.png', height= '35', width= '40')
     block mainContent
-      // END NAVBAR
+    // END NAVBAR
 
-  block body
 
-    footer
-      | © SprkShare 2014
+    block footer
+        div.navbar.navbar-default.navbar-fixed-bottom
+            div.container
+                p.navbar-text
+                    @Sprkshar 2014
 
   // BEGIN LOGIN MODAL
   div(class= 'modal fade' id= 'login_modal', tabindex='-1', role= 'dialog' aria-labelledby= 'myModalLabel', aria-hidden= 'true')
