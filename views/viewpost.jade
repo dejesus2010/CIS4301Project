@@ -1,0 +1,72 @@
+extends layout
+
+block style
+    link( rel='stylesheet', href='/bootstrap/css/viewpoststyle.css')
+
+block scripts
+    script(type='text/javascript').
+        $('#sidebar').affix({
+              offset: {
+                top: 235
+              }
+        });
+
+
+block mainContent
+    div#postHeader
+       div.container
+            div.row
+                div.col-md-7.text-center
+                    div#postTitle
+                        h1 Post Title
+                    div#postDescription
+                        h3 Post description
+
+                div.col-md-5
+                    div.well.well-sm
+                        div.row
+                            div.col-sm-6
+                                a(href='user')
+                                    img.img-circle.img-responsive#userImg(src='images/default_avatar.png')
+                            div.col-sm-6
+                                p.
+                                    | User Name
+                                    | Can even add an about me section...?
+       block PostHeader
+
+    div#postContent
+       div.container
+            div.row
+                div.col-md-1#leftCol
+                    ul.nav.nav-stacked#sidebar
+                        li
+                            div.input-group
+                                span.input-group-addon.add.btn.btn-primary(data-toggle='modal', href='#createcontribution')
+                                span.input-group-addon Contribute
+
+                div.col-md-11#rightCol
+
+                    div.postContent
+                        | Post Content.
+                    div.postContribution
+                        a(href='user')
+                            img( src= '/images/default_avatar.png', height= '30', width= '30' )
+                        a(href='user')
+                            | User 1
+                        div.postContributionContent
+                            | 1st contribution
+                    div.postContribution
+                        a(href='user')
+                            img( src= '/images/default_avatar.png', height= '30', width= '30' )
+                        a(href='user')
+                            | User 2
+                        div.postContributionContent
+                            | 2nd contribution
+                            | To start a Node.js script from a file, simply run $ node filename, e.g., $ node program.js. If all we need is a quick set of statements, there’s a -e option that allow to run inline JavaScript/Node.js, e.g., $ node -e "console.log(new Date());".
+                    div.postContribution
+                        a(href='user')
+                            img( src= '/images/default_avatar.png', height= '30', width= '30' )
+                        a(href='user')
+                            | User 2
+                        span
+                            | 3rd contribution
